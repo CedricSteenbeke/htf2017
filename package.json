@@ -46,6 +46,7 @@
     "protractor": "^5.2.0",
     "protractor-console-plugin": "^0.1.1",
     "truffle-contract": "^3.0.0",
+    "truffle-hdwallet-provider": "0.0.3",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "typescript": "~2.4.0"
