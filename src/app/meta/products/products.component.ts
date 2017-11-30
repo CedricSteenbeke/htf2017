@@ -7,12 +7,17 @@ import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
 })
 
 export class ProductsComponent implements OnInit {
-  products: Array<{name: string}>;
-  products = [
-    {
-      name: 'GSM'
-    },{
-      laptop: 'Laptop'
-    }
-  ];
+  products: Array<{ name: string }>;
+
+  ngOnInit(): void {
+    this.products = [
+      {
+        name: 'GSM'
+      }, {
+        name: 'Laptop'
+      }
+    ];
+    throw new Error("Method not implemented.");
+  }
+
 }
