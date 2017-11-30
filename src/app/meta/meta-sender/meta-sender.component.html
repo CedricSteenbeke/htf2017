@@ -5,24 +5,17 @@
 <h2>Example Truffle Dapp</h2>
 <h3>You have <span id="balance">{{model.balance}}</span> META</h3>
 
-<br>
-<h1>Send MetaCoin</h1>
-<br/>
-<label for="amount">Amount:</label>
-<input type="text" id="amount" placeholder="e.g., 95"
-       (change)="setAmount($event)">
-<br>
 <h1>Products</h1>
 
 <h2>Register products</h2>
 <form #productForm="ngForm" (submit)="submitProduct(productForm)">
   <div class="form-group">
     <label for="productId">Product ID:</label>
-    <input id="productId" type="text" class="form-control" name="id">
+    <input id="productId" type="text" class="form-control" ngModel="id" name="id">
   </div>
   <div class="form-group">
     <label for="productName">Product name:</label>
-    <input id="productName" type="text" class="form-control" name="name">
+    <input id="productName" type="text" class="form-control" ngModel="name" name="name">
   </div>
   <div class="form-group">
     <label for="productAmount">Product price:</label>
@@ -35,6 +28,16 @@
 <select name="products">
   <option *ngFor="let p of products" value="{{p.name}}">{{p.name}}</option>
 </select>
+
+
+<br>
+<h1>Send MetaCoin</h1>
+<br/>
+<label for="amount">Amount:</label>
+<input type="text" id="amount" placeholder="e.g., 95"
+       (change)="setAmount($event)">
+<br>
+
 <br/>
 <label for="receiver">To Address:</label>
 <select name="allAccounts" (click)="clickSendAddress($event)">

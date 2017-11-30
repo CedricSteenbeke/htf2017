@@ -9,6 +9,7 @@ contract Shop is Owned {
   uint256 private store_balance;  // store balance
 
   mapping (uint256 => Product) products;
+
   uint256[] productIds;
 
   //store events
@@ -29,12 +30,12 @@ contract Shop is Owned {
   uint256 price, uint256 default_amount)
   onlyOwner public returns (bool success) {
     var product = Product(id, name, description, price, default_amount);
-    if (checkProductValidity(product)) {
-      productIds.push(id);
-      products[id] = product;
-      ProductRegistered(id);
-      return true;
-    }
+    //if (checkProductValidity(product)) {
+    productIds.push(id);
+    products[id] = product;
+    ProductRegistered(id);npm
+    return true;
+    // }
     ProductRegistrationFailed(id);
     return false;
   }
@@ -43,12 +44,12 @@ contract Shop is Owned {
     return store_balance;
   }
 
-  function checkProductValidity(Product product) private
+  /*function checkProductValidity(Product product) private view
   returns (bool valid) {
     return (product.price > 0);
-  }
+  }*/
 
-  function getProduct(uint256 id) public returns (bytes32 name,
+  function getProduct(uint256 id) public view returns (bytes32 name,
   bytes32 description,
   uint256 price,
   uint256 default_amount) {

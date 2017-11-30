@@ -68,16 +68,16 @@ export class MetaSenderComponent implements OnInit {
     });
   }
 
-  submitProduct(product) {
+  async submitProduct(product) {
     console.log(product.value); //=> steeds leeg object
     if (!this.Shop) {
       this.setStatus('Shop is not loaded');
     }
-    const deployedMetaCoin = this.MetaCoin.deployed();
+    const deployedShop = await this.Shop.deployed();
     const id = product.value.id;
     const name = product.value.name;
     const price = product.value.price;
-    const sendProduct = deployedMetaCoin.registerProduct.sendTransaction(id, name, '', price, 1);
+    const sendProduct = await deployedShop.registerProduct.sendTransaction(id, name, '', price, 1);
     if (!sendProduct) {
       this.setStatus('Product not registered!');
       // TODO: send price to ...
@@ -166,7 +166,6 @@ export class MetaSenderComponent implements OnInit {
 
   setReceiver(e) {
     console.log('Setting receiver: ' + e.target.value);
-    debugger
     this.model.receiver = e.target.value;
   }
 }

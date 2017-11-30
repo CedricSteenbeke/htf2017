@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b1642e1-a8d7-4730-ba48-8047474836cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contracts/Owned.sol" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contracts/Shop.sol" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/meta/products/products.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/meta/products/products.component.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.component.html" afterPath="$PROJECT_DIR$/src/app/app.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contracts/Shop.sol" afterPath="$PROJECT_DIR$/contracts/Shop.sol" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html" afterPath="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts" afterPath="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/meta/meta.module.ts" afterPath="$PROJECT_DIR$/src/app/meta/meta.module.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -33,11 +28,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shop.sol" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shop.sol" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contracts/Shop.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="80" />
+            <state relative-caret-position="144">
+              <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="meta-sender.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="79" column="75" lean-forward="false" selection-start-line="79" selection-start-column="75" selection-end-line="79" selection-end-column="75" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="meta-sender.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,6 +93,7 @@
       <find>scope</find>
       <find>reg</find>
       <find>Owned</find>
+      <find>getproduct</find>
     </findStrings>
     <dirStrings>
       <dir>C:\htf\htf2017\src</dir>
@@ -108,10 +126,10 @@
         <option value="$PROJECT_DIR$/src/app/meta/products/products.component.ts" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/src/app/meta/meta.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html" />
-        <option value="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts" />
         <option value="$PROJECT_DIR$/contracts/Owned.sol" />
         <option value="$PROJECT_DIR$/contracts/Shop.sol" />
+        <option value="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html" />
+        <option value="$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts" />
       </list>
     </option>
   </component>
@@ -335,12 +353,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512030671447</updated>
-      <workItem from="1512030673028" duration="17655000" />
+      <workItem from="1512030673028" duration="18585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17655000" />
+    <option name="totallyTimeSpent" value="18585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -570,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="82" column="32" lean-forward="false" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/meta/meta.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -594,14 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -624,9 +624,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contracts/Shop.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="80" />
+        <state relative-caret-position="144">
+          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/meta/meta-sender/meta-sender.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="79" column="75" lean-forward="false" selection-start-line="79" selection-start-column="75" selection-end-line="79" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
