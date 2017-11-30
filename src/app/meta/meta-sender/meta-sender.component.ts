@@ -9,6 +9,7 @@ import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
 })
 export class MetaSenderComponent implements OnInit {
   accounts: string[];
+  allAccounts: Array<{owner: string, address: string}>;
   MetaCoin: any;
 
   model = {
@@ -38,6 +39,15 @@ export class MetaSenderComponent implements OnInit {
     this.web3Service.accountsObservable.subscribe((accounts) => {
       this.accounts = accounts;
       this.model.account = accounts[0];
+      this.allAccounts = [
+        {
+          'owner': `Leander`,
+          'address': accounts[0]
+        }, {
+          'owner': 'Cedric',
+          'address': '0x6261391b8061d1c7f64df06cd4235fd6e842c4fe'
+        }
+      ];
       this.refreshBalance();
     });
   }
@@ -91,7 +101,9 @@ export class MetaSenderComponent implements OnInit {
     this.model.account = e.target.value;
     this.refreshBalance();
   }
-
+  clickSendAddress(e) {
+    this.model.receiver = e.target.value;
+  }
   setAmount(e) {
     console.log('Setting amount: ' + e.target.value);
     this.model.amount = e.target.value;
@@ -99,7 +111,7 @@ export class MetaSenderComponent implements OnInit {
 
   setReceiver(e) {
     console.log('Setting receiver: ' + e.target.value);
+    debugger
     this.model.receiver = e.target.value;
   }
-
 }

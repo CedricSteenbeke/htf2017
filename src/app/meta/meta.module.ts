@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MetaSenderComponent} from './meta-sender/meta-sender.component';
+import {ProductsComponent} from "./products/products.component";
 import {UtilModule} from '../util/util.module';
 import {RouterModule} from '@angular/router';
 
@@ -11,7 +12,7 @@ import {RouterModule} from '@angular/router';
     UtilModule
   ],
   declarations: [MetaSenderComponent],
-  exports: [MetaSenderComponent]
+  exports: [MetaSenderComponent, ProductsComponent]
 })
 export class MetaModule {
 }
