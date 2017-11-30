@@ -17,7 +17,6 @@ export class ProductsComponent implements OnInit {
         name: 'Laptop'
       }
     ];
-    throw new Error("Method not implemented.");
   }
 
 }
