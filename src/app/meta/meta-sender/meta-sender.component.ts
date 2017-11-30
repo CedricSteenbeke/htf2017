@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Web3Service} from '../../util/web3.service';
 import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
+import shop_artifacts from '../../../../build/contracts/Shop.json';
 
 @Component({
   selector: 'app-meta-sender',
@@ -9,7 +10,7 @@ import metacoin_artifacts from '../../../../build/contracts/MetaCoin.json';
 })
 export class MetaSenderComponent implements OnInit {
   accounts: string[];
-  allAccounts: Array<{owner: string, address: string}>;
+  allAccounts: Array<{ owner: string, address: string }>;
   MetaCoin: any;
 
   model = {
@@ -22,6 +23,8 @@ export class MetaSenderComponent implements OnInit {
   status = '';
   transactionList;
   outgoingTransactions = 'bliep';
+  products: Array<{ name: string }>;
+  Shop: any;
 
   constructor(private web3Service: Web3Service) {
     console.log('Constructor: ' + web3Service);
@@ -36,6 +39,16 @@ export class MetaSenderComponent implements OnInit {
       .then((MetaCoinAbstraction) => {
         this.MetaCoin = MetaCoinAbstraction;
       });
+    this.web3Service.artifactsToContract(shop_artifacts)
+      .then((ShopAbstraction) => {
+        this.Shop = ShopAbstraction;
+      });
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    //const deployedShop = this.Shop.deployed();
+    //this.products = deployedShop.getProducts.call({from:this.model.account});
   }
 
   watchAccount() {
@@ -53,6 +66,24 @@ export class MetaSenderComponent implements OnInit {
       ];
       this.refreshBalance();
     });
+  }
+
+  submitProduct(product) {
+    console.log(product.value); //=> steeds leeg object
+    if (!this.Shop) {
+      this.setStatus('Shop is not loaded');
+    }
+    const deployedMetaCoin = this.MetaCoin.deployed();
+    const id = product.value.id;
+    const name = product.value.name;
+    const price = product.value.price;
+    const sendProduct = deployedMetaCoin.registerProduct.sendTransaction(id, name, '', price, 1);
+    if (!sendProduct) {
+      this.setStatus('Product not registered!');
+      // TODO: send price to ...
+    } else {
+      this.setStatus('Transaction complete');
+    }
   }
 
   setStatus(status) {
@@ -80,7 +111,7 @@ export class MetaSenderComponent implements OnInit {
       } else {
         this.setStatus('Transaction complete!');
         this.outgoingTransactions = 'amount:' + amount + ' to ' + receiver;
-        this.transactionList.push({'reciever':receiver, 'amount':amount, 'ts': new Date()});
+        this.transactionList.push({'reciever': receiver, 'amount': amount, 'ts': new Date()});
         console.log(this.transactionList);
         this.refreshTransactions();
       }
@@ -104,16 +135,16 @@ export class MetaSenderComponent implements OnInit {
     }
   }
 
-  async refreshTransactions(){
+  async refreshTransactions() {
     console.log('fetching transactions');
     try {
-        let tmpTransactionList = "";
-        for(var i=0; i<this.transactionList.length;i++){
-          tmpTransactionList+= '<li>' + this.transactionList[i].ts + ' - Send: ' + this.transactionList[i].amount
-            + ' to: ' + this.transactionList[i].reciever + '</li>';
-        }
-        this.outgoingTransactions = tmpTransactionList;
-    }catch (e){
+      let tmpTransactionList = "";
+      for (var i = 0; i < this.transactionList.length; i++) {
+        tmpTransactionList += '<li>' + this.transactionList[i].ts + ' - Send: ' + this.transactionList[i].amount
+          + ' to: ' + this.transactionList[i].reciever + '</li>';
+      }
+      this.outgoingTransactions = tmpTransactionList;
+    } catch (e) {
       console.log(e);
       this.setStatus("Error fetching transactions");
     }
@@ -123,9 +154,11 @@ export class MetaSenderComponent implements OnInit {
     this.model.account = e.target.value;
     this.refreshBalance();
   }
+
   clickSendAddress(e) {
     this.model.receiver = e.target.value;
   }
+
   setAmount(e) {
     console.log('Setting amount: ' + e.target.value);
     this.model.amount = e.target.value;

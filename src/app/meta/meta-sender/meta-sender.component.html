@@ -12,13 +12,38 @@
 <input type="text" id="amount" placeholder="e.g., 95"
        (change)="setAmount($event)">
 <br>
+<h1>Products</h1>
+
+<h2>Register products</h2>
+<form #productForm="ngForm" (submit)="submitProduct(productForm)">
+  <div class="form-group">
+    <label for="productId">Product ID:</label>
+    <input id="productId" type="text" class="form-control" name="id">
+  </div>
+  <div class="form-group">
+    <label for="productName">Product name:</label>
+    <input id="productName" type="text" class="form-control" name="name">
+  </div>
+  <div class="form-group">
+    <label for="productAmount">Product price:</label>
+    <input id="productAmount" type="number" class="form-control" ngModel="price" name="price">
+  </div>
+  <button type="submit" class="btn btn-default">Add product</button>
+</form>
+
+<h2>Product you want to buy</h2>
+<select name="products">
+  <option *ngFor="let p of products" value="{{p.name}}">{{p.name}}</option>
+</select>
+<br/>
 <label for="receiver">To Address:</label>
 <select name="allAccounts" (click)="clickSendAddress($event)">
   <option></option>
   <option *ngFor="let a of allAccounts" value="{{a.address}}">{{a.owner}}</option>
 </select>
 <br/>
-<input value="{{model.receiver}}" type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+<input value="{{model.receiver}}" type="text" id="receiver"
+       placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
        (change)="setReceiver($event)">
 <br><br>
 <button id="send" (click)="sendCoin()">Send MetaCoin</button>
