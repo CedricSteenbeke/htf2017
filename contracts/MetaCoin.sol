@@ -24,6 +24,15 @@ contract MetaCoin {
 		return true;
 	}
 
+  function sendCoinFor(address mandate, address receiver, uint amount) public returns(bool sufficient) {
+    if(allowed[mandate] != msg.sender) return false;
+    if (balances[mandate] < amount) return false;
+    balances[mandate] -= amount;
+    balances[receiver] += amount;
+    Transfer(mandate, receiver, amount);
+    return true;
+  }
+
 	function getBalanceInEth(address addr) public view returns(uint){
 		return ConvertLib.convert(getBalance(addr),2);
 	}
@@ -31,4 +40,10 @@ contract MetaCoin {
 	function getBalance(address addr) public view returns(uint) {
 		return balances[addr];
 	}
+
+  function mandate(address _spender) public returns (bool success)  {
+    allowed[msg.sender] = _spender;
+    return true;
+  }
+  mapping (address => address) allowed;
 }
