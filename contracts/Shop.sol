@@ -33,7 +33,7 @@ contract Shop is Owned {
     //if (checkProductValidity(product)) {
     productIds.push(id);
     products[id] = product;
-    ProductRegistered(id);npm
+    ProductRegistered(id);
     return true;
     // }
     ProductRegistrationFailed(id);

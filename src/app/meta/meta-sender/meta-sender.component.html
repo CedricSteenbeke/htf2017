@@ -8,7 +8,7 @@
 <h1>Products</h1>
 
 <h2>Register products</h2>
-<form #productForm="ngForm" (submit)="submitProduct(productForm)">
+<form #productForm="ngForm" (submit)="registerProduct(productForm)">
   <div class="form-group">
     <label for="productId">Product ID:</label>
     <input id="productId" type="text" class="form-control" ngModel="id" name="id">

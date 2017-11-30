@@ -68,7 +68,7 @@ export class MetaSenderComponent implements OnInit {
     });
   }
 
-  async submitProduct(product) {
+  async registerProduct(product) {
     console.log(product.value); //=> steeds leeg object
     if (!this.Shop) {
       this.setStatus('Shop is not loaded');
