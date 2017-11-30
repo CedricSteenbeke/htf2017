@@ -19,6 +19,8 @@ export class MetaSenderComponent implements OnInit {
   };
 
   status = '';
+  transactionList;
+  outgoingTransactions = 'bliep';
 
   constructor(private web3Service: Web3Service) {
     console.log('Constructor: ' + web3Service);
@@ -27,6 +29,7 @@ export class MetaSenderComponent implements OnInit {
   ngOnInit(): void {
     console.log('OnInit: ' + this.web3Service);
     console.log(this);
+    this.transactionList = [];
     this.watchAccount();
     this.web3Service.artifactsToContract(metacoin_artifacts)
       .then((MetaCoinAbstraction) => {
@@ -66,6 +69,10 @@ export class MetaSenderComponent implements OnInit {
         this.setStatus('Transaction failed!');
       } else {
         this.setStatus('Transaction complete!');
+        this.outgoingTransactions = 'amount:' + amount + ' to ' + receiver;
+        this.transactionList.push({'reciever':receiver, 'amount':amount, 'ts': new Date()});
+        console.log(this.transactionList);
+        this.refreshTransactions();
       }
     } catch (e) {
       console.log(e);
@@ -84,6 +91,21 @@ export class MetaSenderComponent implements OnInit {
     } catch (e) {
       console.log(e);
       this.setStatus('Error getting balance; see log.');
+    }
+  }
+
+  async refreshTransactions(){
+    console.log('fetching transactions');
+    try {
+        let tmpTransactionList = "";
+        for(var i=0; i<this.transactionList.length;i++){
+          tmpTransactionList+= '<li>' + this.transactionList[i].ts + ' - Send: ' + this.transactionList[i].amount
+            + ' to: ' + this.transactionList[i].reciever + '</li>';
+        }
+        this.outgoingTransactions = tmpTransactionList;
+    }catch (e){
+      console.log(e);
+      this.setStatus("Error fetching transactions");
     }
   }
 
